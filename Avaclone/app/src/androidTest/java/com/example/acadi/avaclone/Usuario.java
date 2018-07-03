@@ -5,6 +5,7 @@ public class Usuario {
     private String nome;
     private String senha;
     private String email;
+    private int CPF;
 
     public int getId (){
         return Id;
@@ -35,5 +36,13 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getCPF() {
+        return CPF;
+    }
+
+    public void setCPF(int CPF) {
+        this.CPF = CPF;
     }
 }
