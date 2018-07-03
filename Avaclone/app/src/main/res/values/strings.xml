@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">Avaclone</string>
+    <!--strings de EditText-->
+    <string name="app_name">AvaClone</string>
+    <string name="palavra_usuario">Usuario</string>
+    <string name="palavra_senha">Senha</string>
+    <string name="palavra_senha2">Repita a senha</string>
+    <string name="palavra_senhaava">Senha do AVA</string>
+    <string name="palavra_nome">Nome</string>
+    <string name="paçavra_cpf">CPF</string>
+    <string name="palavra_telefone">Telefone(inclua DDD)</string>
+    <string name="palavra_email">E-mail</string>
+    <!--strings de texto-->
+    <string name="label_cadastro">Cadastro</string>
+    <string name="texto_cadastro">O nome,cpf e senha devem ser\nos mesmos usados no AVA.</string>
+    <!--strings de buttons-->
+    <string name="palavra_logar">Logar</string>
+    <string name="frase_button_newacc">Criar conta</string>
+    <string name="frase_esquecipass">Esqueci minha senha</string>
+    <string name="palavra_enviar">Enviar</string>
+    <string name="checkbox_remember">Lembre-me</string>
+    <!--strings de imagem-->
+    <string name="logo_avaclone">LogoAvaClone</string>
 </resources>
