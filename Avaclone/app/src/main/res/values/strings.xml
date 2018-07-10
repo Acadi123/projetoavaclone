@@ -10,8 +10,13 @@
     <string name="palavra_telefone">Telefone(inclua DDD)</string>
     <string name="palavra_email">E-mail</string>
     <!--strings de texto-->
-    <string name="label_cadastro">Cadastro</string>
-    <string name="texto_cadastro">O nome,cpf e senha devem ser\nos mesmos usados no AVA.</string>
+    <string name="TxtloginAVA">O usuario e a senha devem ser os mesmo do AVA</string>
+    <string name="LabelPerfil">Perfil</string>
+    <string name="PerfilCPF">CPF:</string>
+    <string name="PerfilEMAIL">E-mail:</string>
+    <string name="PerfilNOME">Nome:</string>
+    <string name="PerfilCIDADE">Cidade:</string>
+    <string name="PerfilCURSO">Curso:</string>
     <!--strings de buttons-->
     <string name="palavra_logar">Logar</string>
     <string name="frase_button_newacc">Criar conta</string>
