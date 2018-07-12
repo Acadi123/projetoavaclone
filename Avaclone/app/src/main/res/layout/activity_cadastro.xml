@@ -10,7 +10,8 @@
         android:id="@+id/CabNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/PerfilNOME"
+        android:textColor="@color/blackText"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="25dp" />
 
@@ -18,7 +19,7 @@
         android:id="@+id/CabCpf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/PerfilCIDADE"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="260dp" />
 
@@ -26,7 +27,8 @@
         android:id="@+id/CabCurso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/PerfilCPF"
+        android:textColor="@color/blackText"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="86dp" />
 
@@ -34,7 +36,8 @@
         android:id="@+id/CabCidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/PerfilCURSO"
+        android:textColor="@color/blackText"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="142dp" />
 
@@ -42,7 +45,8 @@
         android:id="@+id/CabEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/PerfilEMAIL"
+        android:textColor="@color/blackText"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="199dp" />
 

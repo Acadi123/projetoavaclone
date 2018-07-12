@@ -24,11 +24,12 @@
 
     <TextView
         android:id="@+id/TxtLoginAVA"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="37dp"
-        android:layout_marginLeft="38dp"
+        android:layout_marginLeft="39dp"
         android:layout_marginRight="37dp"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="39dp"
         android:layout_marginTop="16dp"
         android:text="@string/TxtloginAVA"
         android:textColor="@color/blackText"
@@ -47,7 +48,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/palavra_usuario"
-        android:inputType="number"
+        android:inputType="text"
         android:textColorHint="@color/cinzaText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
