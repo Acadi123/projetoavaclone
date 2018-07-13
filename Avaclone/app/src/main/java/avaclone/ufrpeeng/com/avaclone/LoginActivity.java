@@ -37,9 +37,7 @@ public class LoginActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                Returnrequest
 
-                OkHttpClient okHttpClient;
                 Request request;
 
                 EditText LoginTxt, PassTxt;
@@ -48,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                 LoginTxt = findViewById(R.id.LoginTxtInput);
                 PassTxt = findViewById(R.id.PassTxtInput);
 
-                okHttpClient = new OkHttpClient();
+                OkHttpClient okHttpClient = new OkHttpClient();
 
                 Login = LoginTxt.getText().toString();
                 Senha = PassTxt.getText().toString();
@@ -65,7 +63,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call call, IOException e) {
-                        returnRequest.retrieveData(null);
+                        Object returnRequest;
+                        //returnRequest.retrieveData("");
                         //TOAST COM PROBLEMA DE CONEXAO E REINICIA A PAGINA
 
                     }
@@ -76,11 +75,13 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObj = new JSONObject(result);
                             String token = jsonObj.getString("token");
-                            returnRequest.retrieveData(token);
+                            Object returnRequest;
+                            //returnRequest.retrieveData(token);
                             //INTENT PARA A PROXIMA PAGINA AQUI E REINICIA A PAGINA E GUARDA O TOKEN
                             //PARA PROXIMA PAGINA
                         } catch (Exception e) {
-                            returnRequest.retrieveData(null);
+                            Object returnRequest;
+                            //returnRequest.retrieveData(null);
                             //TOAST AQUI
                         }
                     }
