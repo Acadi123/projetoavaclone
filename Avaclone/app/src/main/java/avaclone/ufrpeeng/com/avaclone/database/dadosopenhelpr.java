@@ -1,25 +1,34 @@
 package avaclone.ufrpeeng.com.avaclone.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
-public class dadosopenhelpr extends SQLiteOpenHelper {
+public class BancoController {
 
+    private SQLiteDatabase db;
+    private dadosopenhelpr.CriaBanco banco;
 
-    public dadosopenhelpr(Context context) {
-        super(context, "dados", null, 1);
+    public BancoController(Context context){
+        banco = new dadosopenhelpr.CriaBanco(context);
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    public String insereDado(String Fórum){
+        ContentValues valores;
+        long resultado;
 
-        sqLiteDatabase.execSQL( ScriptDLL.getCreateTableCliente() );
+        db = banco.getWritableDatabase();
+        valores = new ContentValues();
+        valores.put(dadosopenhelpr.CriaBanco.FÓRUM, Fórum);
 
-    }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        resultado = db.insert(dadosopenhelpr.CriaBanco.TABELA, null, valores);
+        banco.close();
+
+        if (resultado ==-1)
+            return "Erro ao inserir registro";
+        else
+            return "Registro Inserido com sucesso”;
 
     }
 }
