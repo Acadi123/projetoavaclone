@@ -23,7 +23,7 @@ public class BancoController {
 
 
         resultado = db.insert(dadosopenhelpr.CriaBanco.TABELA, null, valores);
-        banco.close();//x
+        banco.close();
 
         if (resultado ==-1)
             return "Erro ao inserir registro";
