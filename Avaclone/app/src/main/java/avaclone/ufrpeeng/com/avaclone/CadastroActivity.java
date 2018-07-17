@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -19,6 +20,8 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class CadastroActivity extends AppCompatActivity {
+
+    TextView nometxt,cpftxt,cursotxt,emailtxt,cidadetxt;
 
     String url = "http://ava.ufrpe.br/webservice/rest/server.php?moodlewsrestformat=json";
 
@@ -59,6 +62,13 @@ public class CadastroActivity extends AppCompatActivity {
                         String Curso = retorno2.getString("department");
                         String Email = retorno2.getString("email");
                         String Cidade = retorno2.getString("city");
+
+                        nometxt.setText(Nome);
+                        cpftxt.setText(CPF);
+                        cursotxt.setText(Curso);
+                        emailtxt.setText(Email);
+                        cidadetxt.setText(Cidade);
+
 
 
                     } catch (JSONException e) {
