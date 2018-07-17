@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-public class BancoController {
+class BancoController {
 
     private SQLiteDatabase db;
     private dadosopenhelpr.CriaBanco banco;
