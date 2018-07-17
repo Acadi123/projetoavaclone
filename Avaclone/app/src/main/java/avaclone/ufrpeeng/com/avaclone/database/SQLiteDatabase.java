@@ -11,7 +11,7 @@ public class dadosopenhelpr extends SQLiteOpenHelper {
     /**
      *
      */
-    public class CriaBanco extends SQLiteOpenHelper {
+    public static class CriaBanco extends SQLiteOpenHelper {
         private static final String NOME_BANCO = "banco.db";
         public static final String TABELA = "Disciplina";
         private static final String ID = "_id";
