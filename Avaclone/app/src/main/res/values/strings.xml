@@ -17,6 +17,7 @@
     <string name="PerfilNOME">Nome:</string>
     <string name="PerfilCIDADE">Cidade:</string>
     <string name="PerfilCURSO">Curso:</string>
+    <string name="PerfilUniv">Universidade</string>
     <!--strings de buttons-->
     <string name="palavra_logar">Logar</string>
     <string name="frase_button_newacc">Criar conta</string>

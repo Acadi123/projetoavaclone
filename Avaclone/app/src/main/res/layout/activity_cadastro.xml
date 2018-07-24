@@ -14,6 +14,7 @@
         android:layout_marginStart="16dp"
         android:text="@string/PerfilNOME"
         android:textColor="@color/blackText"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="72dp" />
 
@@ -26,8 +27,22 @@
         android:layout_marginTop="24dp"
         android:text="@string/PerfilCIDADE"
         android:textColor="@color/blackText"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EmailSet" />
+
+    <TextView
+        android:id="@+id/CabUniv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/PerfilUniv"
+        android:textColor="@color/blackText"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CidadeSet" />
 
     <TextView
         android:id="@+id/CabCurso"
@@ -38,6 +53,7 @@
         android:layout_marginTop="24dp"
         android:text="@string/PerfilCPF"
         android:textColor="@color/blackText"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NomeSet" />
 
@@ -50,6 +66,7 @@
         android:layout_marginTop="24dp"
         android:text="@string/PerfilCURSO"
         android:textColor="@color/blackText"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CpfSet" />
 
@@ -62,6 +79,7 @@
         android:layout_marginTop="24dp"
         android:text="@string/PerfilEMAIL"
         android:textColor="@color/blackText"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CursoSet" />
 
@@ -73,6 +91,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/cinzaText"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CabNome" />
 
@@ -84,8 +103,21 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/cinzaText"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CabCurso" />
+
+    <TextView
+        android:id="@+id/UnivSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/cinzaText"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CabUniv" />
 
     <TextView
         android:id="@+id/CidadeSet"
@@ -93,8 +125,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:textColor="@color/cinzaText"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CabCpf" />
 
@@ -106,6 +139,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/cinzaText"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CabCidade" />
 
@@ -117,6 +151,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/cinzaText"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CabEmail" />
 
