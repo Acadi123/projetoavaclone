@@ -9,15 +9,17 @@
     <string name="paçavra_cpf">CPF</string>
     <string name="palavra_telefone">Telefone(inclua DDD)</string>
     <string name="palavra_email">E-mail</string>
+    <!-- strings de label-->
+    <string name="LabelPerfil">Perfil</string>
+    <string name="LabelDisc">Disciplinas</string>
     <!--strings de texto-->
     <string name="TxtloginAVA">O usuario e a senha devem ser os mesmo do AVA</string>
-    <string name="LabelPerfil">Perfil</string>
     <string name="PerfilCPF">CPF:</string>
     <string name="PerfilEMAIL">E-mail:</string>
     <string name="PerfilNOME">Nome:</string>
     <string name="PerfilCIDADE">Cidade:</string>
     <string name="PerfilCURSO">Curso:</string>
-    <string name="PerfilUniv">Universidade</string>
+    <string name="PerfilUniv">Universidade:</string>
     <!--strings de buttons-->
     <string name="palavra_logar">Logar</string>
     <string name="frase_button_newacc">Criar conta</string>
@@ -26,4 +28,10 @@
     <string name="checkbox_remember">Lembre-me</string>
     <!--strings de imagem-->
     <string name="logo_avaclone">LogoAvaClone</string>
+    <!--strings de menu-->
+    <string name="menuDisciplinas">DISCIPLINAS</string>
+    <string name="menuPerfil">PERFIL</string>
+    <string name="menuGrade">GRADE</string>
+    <string name="menuSistema">SOBRE O SISTEMA</string>
+    <string name="menuLogout">LOGOUT</string>
 </resources>
