@@ -26,13 +26,10 @@ import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    String url = "";
-
     EditText userName, userSenha;
 
     String parametros = "";
 
-    String ava;
 
 
     @Override
@@ -91,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(String resultado) {
             if (resultado != null) {
                 Toast.makeText(getApplicationContext(), "Logado com sucesso.", Toast.LENGTH_SHORT).show();
-                Intent it = new Intent(LoginActivity.this, CadastroActivity.class);
+                Intent it = new Intent(LoginActivity.this, DiscipActivity.class);
                 it.putExtra("token",resultado);
                 startActivity(it);
             }

@@ -6,17 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".CadastroActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+
+        />
+
     <TextView
         android:id="@+id/CabNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/PerfilNOME"
-        android:textColor="@color/blackText"
+        android:textColor="@color/cinzaText"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="72dp" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/CabCpf"
@@ -26,7 +33,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="@string/PerfilCIDADE"
-        android:textColor="@color/blackText"
+        android:textColor="@color/cinzaText"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EmailSet" />
@@ -39,7 +46,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="@string/PerfilUniv"
-        android:textColor="@color/blackText"
+        android:textColor="@color/cinzaText"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CidadeSet" />
@@ -52,7 +59,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="@string/PerfilCPF"
-        android:textColor="@color/blackText"
+        android:textColor="@color/cinzaText"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NomeSet" />
@@ -65,7 +72,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="@string/PerfilCURSO"
-        android:textColor="@color/blackText"
+        android:textColor="@color/cinzaText"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CpfSet" />
@@ -78,7 +85,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="@string/PerfilEMAIL"
-        android:textColor="@color/blackText"
+        android:textColor="@color/cinzaText"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CursoSet" />
@@ -90,7 +97,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/cinzaText"
+        android:textColor="@color/blackText"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CabNome" />
@@ -102,7 +109,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/cinzaText"
+        android:textColor="@color/blackText"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CabCurso" />
@@ -114,7 +121,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/cinzaText"
+        android:textColor="@color/blackText"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CabUniv" />
@@ -126,7 +133,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/cinzaText"
+        android:textColor="@color/blackText"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CabCpf" />
@@ -138,7 +145,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/cinzaText"
+        android:textColor="@color/blackText"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CabCidade" />
@@ -150,7 +157,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/cinzaText"
+        android:textColor="@color/blackText"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CabEmail" />

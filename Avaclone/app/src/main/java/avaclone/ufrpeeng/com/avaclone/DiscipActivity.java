@@ -11,7 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -19,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -26,23 +28,30 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class CadastroActivity extends AppCompatActivity {
+public class DiscipActivity extends AppCompatActivity {
 
     String parametros1 = "";
     String parametros2 = "";
     String userid = "";
-    TextView nometxt, cpftxt, cursotxt, emailtxt, cidadetxt, univtxt;
     String token;
 
     String url = "http://ava.ufrpe.br/webservice/rest/server.php?moodlewsrestformat=json";
 
+    ListView listdiscW;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro);
+        setContentView(R.layout.activity_discip);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        listdiscW = findViewById(R.id.listdisc);
 
         Toast erro = Toast.makeText(getApplicationContext(), "Algo deu errado.", Toast.LENGTH_LONG);
 
@@ -59,15 +68,18 @@ public class CadastroActivity extends AppCompatActivity {
 
             if (networkInfo != null && networkInfo.isConnected()) {
                 new SolocitaDados1().execute(url);
+
             }
             else {
                 erro.show();
             }
         }
-         else {
+        else {
             erro.show();
         }
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -79,14 +91,14 @@ public class CadastroActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.disciplinas:
-                Intent it = new Intent(CadastroActivity.this, DiscipActivity.class);
-                it.putExtra("token",token);
-                startActivity(it);
+                Toast actatual = Toast.makeText(DiscipActivity.this,"Você já esta nessa pagina",Toast.LENGTH_SHORT);
+                actatual.show();
                 return true;
 
             case R.id.perfil:
-                Toast actatual = Toast.makeText(CadastroActivity.this,"Você já esta nessa pagina",Toast.LENGTH_SHORT);
-                actatual.show();
+                Intent it = new Intent(DiscipActivity.this, CadastroActivity.class);
+                it.putExtra("token",token);
+                startActivity(it);
                 return true;
 
             case R.id.sobresist:
@@ -102,6 +114,10 @@ public class CadastroActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
 
 
     public class SolocitaDados1 extends AsyncTask<String, Void, JSONObject> {
@@ -126,43 +142,32 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
 
-    public class SolocitaDados2 extends AsyncTask<String, Void, JSONObject> {
+    public class SolocitaDados2 extends AsyncTask<String, Void, JSONArray> {
         @Override
-        protected JSONObject doInBackground(String... urls) {
+        protected JSONArray doInBackground(String... urls) {
             return Conexao2.postDados(urls[0], parametros2);
         }
 
-        protected void onPostExecute(JSONObject resultado) {
+        protected void onPostExecute(JSONArray resultado) {
             Toast erro = Toast.makeText(getApplicationContext(), "Algo deu errado.", Toast.LENGTH_LONG);
 
             if (resultado != null) {
                 try {
+                    ArrayList<String> listdisc = new ArrayList<>();
 
-                    String nome = resultado.getString("fullname");
-                    String cpf = resultado.getString("idnumber");
-                    String curso = resultado.getString("department");
-                    String email = resultado.getString("email");
-                    String cidade = resultado.getString("city");
-                    String univ = resultado.getString("institution");
+                    for (int i = 0; i < resultado.length(); i++){
+                        JSONObject row = resultado.getJSONObject(i);
+                        String nomedisc = row.getString("fullname");
+                        if (nomedisc.startsWith("2018.1")){
+                            listdisc.add(nomedisc);
 
-                    nometxt = findViewById(R.id.NomeSet);
-                    cpftxt = findViewById(R.id.CpfSet);
-                    cursotxt = findViewById(R.id.CursoSet);
-                    emailtxt = findViewById(R.id.EmailSet);
-                    cidadetxt = findViewById(R.id.CidadeSet);
-                    univtxt = findViewById(R.id.UnivSet);
+                            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(DiscipActivity.this, android.R.layout.simple_list_item_2, listdisc);
+                            listdiscW.setAdapter(arrayAdapter);
 
-                    nometxt.setText(nome);
-                    cpftxt.setText(cpf);
-                    cursotxt.setText(curso);
-                    emailtxt.setText(email);
-                    cidadetxt.setText(cidade);
-                    univtxt.setText(univ);
-
-                    Toast sucesso = Toast.makeText(getApplicationContext(), "Informações de perfil carregadas", Toast.LENGTH_SHORT);
+                        }
+                    }
+                    Toast sucesso = Toast.makeText(getApplicationContext(), "Disciplinas carregadas", Toast.LENGTH_SHORT);
                     sucesso.show();
-
-
 
                 } catch (JSONException e) {
                     erro.show();
@@ -170,9 +175,9 @@ public class CadastroActivity extends AppCompatActivity {
             }
             else {
                 erro.show();
-                }
             }
         }
+    }
 
     public static class Conexao1 {
 
@@ -205,7 +210,7 @@ public class CadastroActivity extends AppCompatActivity {
     }
     public static class Conexao2 {
 
-        public static JSONObject postDados(String urlUsuario, String parametrosUsuario) {
+        public static JSONArray postDados(String urlUsuario, String parametrosUsuario) {
             OkHttpClient client = new OkHttpClient();
 
             Request.Builder builder1 = new Request.Builder();
@@ -222,10 +227,16 @@ public class CadastroActivity extends AppCompatActivity {
             try {
                 Response response = client.newCall(request1).execute();
                 String result = response.body().string();
-                JSONArray jsonArray = new JSONArray(result); ///PROBLEMA AQUI JSONARRAY
+
+                JSONArray jsona1 = new JSONArray(result);
+
                 JSONObject jsonobj;
-                jsonobj = jsonArray.getJSONObject(0);
-                return jsonobj;
+                jsonobj = jsona1.getJSONObject(0);
+
+                JSONArray jsona2 = jsonobj.getJSONArray("enrolledcourses");
+
+                return jsona2;
+
             } catch (IOException e) {
                 return null;
             } catch (JSONException e) {
@@ -235,4 +246,3 @@ public class CadastroActivity extends AppCompatActivity {
         }
     }
 }
-

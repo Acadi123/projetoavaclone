@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/disciplinas"
+        android:title="@string/menuDisciplinas"
+        app:showAsAction="never"/>
+    <item android:id="@+id/perfil"
+        android:title="@string/menuPerfil"
+        app:showAsAction="never"/>
+    <item android:id="@+id/grade"
+        android:title="@string/menuGrade"
+        app:showAsAction="never"/>
+    <item android:id="@+id/sobresist"
+        android:title="@string/menuSistema"
+        app:showAsAction="never"/>
+    <item android:id="@+id/logout"
+        android:title="@string/menuLogout"
+        app:showAsAction="never"/>
+
+</menu>
