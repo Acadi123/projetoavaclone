@@ -214,7 +214,6 @@ public class DiscipActivity extends AppCompatActivity {
 
                     ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(DiscipActivity.this, android.R.layout.simple_list_item_1, listdisc);
                     listdiscW.setAdapter(arrayAdapter);
-                    /// o problema esta no layout, o texto esta com a cor branca.
 
                     Toast sucesso = Toast.makeText(getApplicationContext(), "Disciplinas carregadas", Toast.LENGTH_SHORT);
                     sucesso.show();
