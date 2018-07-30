@@ -2,15 +2,19 @@ package avaclone.ufrpeeng.com.avaclone;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,10 +45,60 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
+        //menu nav
+        Drawable menuicon = ContextCompat.getDrawable(CadastroActivity.this,R.drawable.ic_menu_nav);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(menuicon);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu menu = new PopupMenu(CadastroActivity.this, view);
+                menu.getMenuInflater().inflate(R.menu.menu_main, menu.getMenu());
+                menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.disciplinas:
+                                Intent disc = new Intent(CadastroActivity.this, DiscipActivity.class);
+                                disc.putExtra("token", token);
+                                startActivity(disc);
+                                return true;
 
-        Toast erro = Toast.makeText(getApplicationContext(), "Algo deu errado.", Toast.LENGTH_LONG);
+                            case R.id.perfil:
+                                Toast actatual = Toast.makeText(CadastroActivity.this, "Você já esta nessa pagina", Toast.LENGTH_SHORT);
+                                actatual.show();
+                                return true;
+
+                            case R.id.sobresist:
+                                Intent sobresist = new Intent(CadastroActivity.this, SobresistActivity.class);
+                                sobresist.putExtra("token", token);
+                                startActivity(sobresist);
+                                return true;
+
+
+                            case R.id.grade:
+                                //
+                                return true;
+
+                            case R.id.logout:
+                                Intent logout = new Intent(CadastroActivity.this, LoginActivity.class);
+                                startActivity(logout);
+                                return true;
+
+                            default:
+                                return false;
+                        }
+                    }
+                });
+                menu.show();
+            }
+        });
+        //
+
+
+
+        Toast erro = Toast.makeText(getApplicationContext(), "Verifique sua conexão com a internet.", Toast.LENGTH_LONG);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -64,44 +118,38 @@ public class CadastroActivity extends AppCompatActivity {
                 erro.show();
             }
         }
-         else {
-            erro.show();
-        }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
+        inflater.inflate(R.menu.reload_menu, menu);
         return true;
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.disciplinas:
-                Intent it = new Intent(CadastroActivity.this, DiscipActivity.class);
-                it.putExtra("token",token);
-                startActivity(it);
+            case R.id.recarregar:
+                ConnectivityManager connMgr = (ConnectivityManager)
+                        getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    new SolocitaDados1().execute(url);
+                }
+                else {
+                    Toast erro = Toast.makeText(getApplicationContext(), "Verifique sua conexão com a internet.", Toast.LENGTH_LONG);
+                    erro.show();
+                }
+
                 return true;
 
-            case R.id.perfil:
-                Toast actatual = Toast.makeText(CadastroActivity.this,"Você já esta nessa pagina",Toast.LENGTH_SHORT);
-                actatual.show();
-                return true;
-
-            case R.id.sobresist:
-                //
-                return true;
-            case R.id.grade:
-                //
-                return true;
-            case R.id.logout:
-                //
-                return true;
 
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 
     public class SolocitaDados1 extends AsyncTask<String, Void, JSONObject> {
@@ -111,7 +159,7 @@ public class CadastroActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(JSONObject resultado) {
-            Toast erro = Toast.makeText(getApplicationContext(), "Algo deu errado.", Toast.LENGTH_LONG);
+            Toast erro = Toast.makeText(getApplicationContext(), "Erro ao coletar informações do servidor.", Toast.LENGTH_LONG);
             if (resultado != null) try {
                 userid = resultado.getString("userid");
                 parametros2 = parametros2 + "&userids[0]=" + userid;
@@ -133,17 +181,18 @@ public class CadastroActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(JSONObject resultado) {
-            Toast erro = Toast.makeText(getApplicationContext(), "Algo deu errado.", Toast.LENGTH_LONG);
+            Toast erro = Toast.makeText(getApplicationContext(), "Erro ao coletar informações do servidor.", Toast.LENGTH_LONG);
+
 
             if (resultado != null) {
                 try {
 
-                    String nome = resultado.getString("fullname");
+                    String nome = trabnome(resultado.getString("fullname"));
                     String cpf = resultado.getString("idnumber");
-                    String curso = resultado.getString("department");
+                    String curso = trabtexto(resultado.getString("department"));
                     String email = resultado.getString("email");
-                    String cidade = resultado.getString("city");
-                    String univ = resultado.getString("institution");
+                    String cidade = trabtexto(resultado.getString("city"));
+                    String univ = trabtexto(resultado.getString("institution"));
 
                     nometxt = findViewById(R.id.NomeSet);
                     cpftxt = findViewById(R.id.CpfSet);
@@ -173,6 +222,7 @@ public class CadastroActivity extends AppCompatActivity {
                 }
             }
         }
+
 
     public static class Conexao1 {
 
@@ -234,5 +284,25 @@ public class CadastroActivity extends AppCompatActivity {
             return null;
         }
     }
+
+    public String trabnome(String texto) {
+        texto = texto.toLowerCase();
+        StringBuilder stringBuilder = new StringBuilder(texto);
+        stringBuilder.setCharAt(0,Character.toUpperCase((texto.charAt(0))));
+        for (int k = 0; k < texto.length(); k++) {
+            if (Character.toString(texto.charAt(k)).equals(" ")) {
+                stringBuilder.setCharAt(k+1,Character.toUpperCase((texto.charAt(k + 1))));
+            }
+
+        }
+        return stringBuilder.toString();
+    }
+    public String trabtexto(String texto) {
+        texto = texto.toLowerCase();
+        StringBuilder stringBuilder = new StringBuilder(texto);
+        stringBuilder.setCharAt(0,Character.toUpperCase((texto.charAt(0))));
+        return stringBuilder.toString();
+    }
+
 }
 

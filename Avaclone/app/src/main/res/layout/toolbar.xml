@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary"
     android:theme="@style/menuTheme"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:titleTextColor="@color/whiteText">
 
 </android.support.v7.widget.Toolbar>

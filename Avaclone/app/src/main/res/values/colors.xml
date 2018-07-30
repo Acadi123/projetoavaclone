@@ -2,11 +2,12 @@
 <resources>
     <color name="colorPrimary">#272b30</color>
     <color name="colorPrimaryDark">#ffffff</color>
-    <color name="colorAccent">#6dff34</color>
+    <color name="colorAccent">#403e3e</color>
     <color name="foreground_material_light">#979797</color>
     <color name="background_material_light">#ffffff</color>
-    <color name="statusBar">#8090A4</color>
+    <color name="statusBar">#8090a4</color>
     <color name="blackText">#000000</color>
     <color name="whiteText">#ffffff</color>
     <color name="cinzaText">#808080</color>
+    <color name="cardcolor">#cccbd4</color>
 </resources>

@@ -1,39 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".GradeActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="399dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="465dp"
-        android:background="#CC000000"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
-
-    <TextView
-        android:id="@+id/textgrade"
-        android:layout_width="48dp"
-        android:layout_height="22dp"
-        android:layout_marginBottom="479dp"
-        android:layout_marginEnd="250dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="250dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Grade"
-        android:textColor="@color/whiteText"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="1.0" />
 </android.support.constraint.ConstraintLayout>

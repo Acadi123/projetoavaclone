@@ -11,6 +11,7 @@
         android:roundIcon="@drawable/avaclonelogo"
         android:supportsRtl="true">
         <activity
+            android:screenOrientation="portrait"
             android:name=".LoginActivity"
             android:theme="@style/LoginTheme">
             <intent-filter>
@@ -20,16 +21,28 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".CadastroActivity"
             android:label="@string/LabelPerfil"
+            android:theme="@style/LoginTheme" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".DiscipActivity"
+            android:label="@string/LabelDisc"
+            android:theme="@style/LoginTheme" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".SobresistActivity"
+            android:label="@string/LabelSobresist"
+            android:theme="@style/LoginTheme" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".GradeActivity"
+            android:label="@string/LabelGrade"
             android:theme="@style/LoginTheme"
             />
 
-        <activity
-            android:name=".DiscipActivity"
-            android:label="@string/LabelDisc"
-            android:theme="@style/LoginTheme"
-            />
+
     </application>
 
 </manifest>

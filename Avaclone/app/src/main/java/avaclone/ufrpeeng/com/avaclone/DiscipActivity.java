@@ -2,17 +2,21 @@ package avaclone.ufrpeeng.com.avaclone;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -48,12 +52,61 @@ public class DiscipActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discip);
 
+        Drawable menuicon = ContextCompat.getDrawable(DiscipActivity.this,R.drawable.ic_menu_nav);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(menuicon);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu menu = new PopupMenu(DiscipActivity.this, view);
+                menu.getMenuInflater().inflate(R.menu.menu_main, menu.getMenu());
+                menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.disciplinas:
+                                Toast actatual = Toast.makeText(DiscipActivity.this, "Você já esta nessa pagina", Toast.LENGTH_SHORT);
+                                actatual.show();
+                                return true;
+
+
+                            case R.id.perfil:
+                                Intent perfil = new Intent(DiscipActivity.this, CadastroActivity.class);
+                                perfil.putExtra("token", token);
+                                startActivity(perfil);
+                                return true;
+
+
+
+                            case R.id.sobresist:
+                                Intent sobresist = new Intent(DiscipActivity.this, SobresistActivity.class);
+                                sobresist.putExtra("token", token);
+                                startActivity(sobresist);
+                                return true;
+
+
+                            case R.id.grade:
+                                //
+                                return true;
+
+                            case R.id.logout:
+                                Intent logout = new Intent(DiscipActivity.this, LoginActivity.class);
+                                startActivity(logout);
+                                return true;
+
+                            default:
+                                return false;
+                        }
+                    }
+                });
+                menu.show();
+            }
+        });
 
         listdiscW = findViewById(R.id.listdisc);
 
-        Toast erro = Toast.makeText(getApplicationContext(), "Algo deu errado.", Toast.LENGTH_LONG);
+        Toast erro = Toast.makeText(getApplicationContext(), "Verifique sua conexão com a internet.", Toast.LENGTH_LONG);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -74,9 +127,6 @@ public class DiscipActivity extends AppCompatActivity {
                 erro.show();
             }
         }
-        else {
-            erro.show();
-        }
     }
 
 
@@ -84,32 +134,30 @@ public class DiscipActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
+        inflater.inflate(R.menu.reload_menu, menu);
         return true;
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.disciplinas:
-                Toast actatual = Toast.makeText(DiscipActivity.this,"Você já esta nessa pagina",Toast.LENGTH_SHORT);
-                actatual.show();
+            case R.id.recarregar:
+
+                ConnectivityManager connMgr = (ConnectivityManager)
+                        getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    new SolocitaDados1().execute(url);
+
+                }
+                else {
+                    Toast erro = Toast.makeText(getApplicationContext(), "Verifique sua conexão com a internet.", Toast.LENGTH_LONG);
+                    erro.show();
+                }
+
+
                 return true;
 
-            case R.id.perfil:
-                Intent it = new Intent(DiscipActivity.this, CadastroActivity.class);
-                it.putExtra("token",token);
-                startActivity(it);
-                return true;
-
-            case R.id.sobresist:
-                //
-                return true;
-            case R.id.grade:
-                //
-                return true;
-            case R.id.logout:
-                //
-                return true;
 
         }
         return super.onOptionsItemSelected(item);
@@ -127,7 +175,7 @@ public class DiscipActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(JSONObject resultado) {
-            Toast erro = Toast.makeText(getApplicationContext(), "Algo deu errado.", Toast.LENGTH_LONG);
+            Toast erro = Toast.makeText(getApplicationContext(), "Erro ao coletar informações do servidor.", Toast.LENGTH_LONG);
             if (resultado != null) try {
                 userid = resultado.getString("userid");
                 parametros2 = parametros2 + "&userids[0]=" + userid;
@@ -149,7 +197,7 @@ public class DiscipActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(JSONArray resultado) {
-            Toast erro = Toast.makeText(getApplicationContext(), "Algo deu errado.", Toast.LENGTH_LONG);
+            Toast erro = Toast.makeText(getApplicationContext(), "Erro ao coletar informações do servidor.", Toast.LENGTH_LONG);
 
             if (resultado != null) {
                 try {
@@ -159,13 +207,15 @@ public class DiscipActivity extends AppCompatActivity {
                         JSONObject row = resultado.getJSONObject(i);
                         String nomedisc = row.getString("fullname");
                         if (nomedisc.startsWith("2018.1")){
+                            nomedisc = nomedisc.replace("2018.1 | ","");
                             listdisc.add(nomedisc);
-
-                            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(DiscipActivity.this, android.R.layout.simple_list_item_2, listdisc);
-                            listdiscW.setAdapter(arrayAdapter);
-
                         }
                     }
+
+                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(DiscipActivity.this, android.R.layout.simple_list_item_1, listdisc);
+                    listdiscW.setAdapter(arrayAdapter);
+                    /// o problema esta no layout, o texto esta com a cor branca.
+
                     Toast sucesso = Toast.makeText(getApplicationContext(), "Disciplinas carregadas", Toast.LENGTH_SHORT);
                     sucesso.show();
 

@@ -12,154 +12,221 @@
 
         />
 
-    <TextView
-        android:id="@+id/CabNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/PerfilNOME"
-        android:textColor="@color/cinzaText"
-        android:textSize="18sp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/LabelPerfil"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/ic_perfil" />
+
+    <TextView
+        android:id="@+id/obs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/obsinfoload"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardperfil" />
+
+    <TextView
+        android:id="@+id/alunoinfotext2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="38dp"
+        android:text="@string/alunoinfo"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <TextView
-        android:id="@+id/CabCpf"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardperfil"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/PerfilCIDADE"
-        android:textColor="@color/cinzaText"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EmailSet" />
-
-    <TextView
-        android:id="@+id/CabUniv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/PerfilUniv"
-        android:textColor="@color/cinzaText"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CidadeSet" />
-
-    <TextView
-        android:id="@+id/CabCurso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/PerfilCPF"
-        android:textColor="@color/cinzaText"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NomeSet" />
-
-    <TextView
-        android:id="@+id/CabCidade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/PerfilCURSO"
-        android:textColor="@color/cinzaText"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CpfSet" />
-
-    <TextView
-        android:id="@+id/CabEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/PerfilEMAIL"
-        android:textColor="@color/cinzaText"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CursoSet" />
-
-    <TextView
-        android:id="@+id/NomeSet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/blackText"
-        android:textSize="18sp"
+        app:cardBackgroundColor="@color/cardcolor"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CabNome" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        tools:style="@style/CardView">
 
-    <TextView
-        android:id="@+id/CpfSet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/blackText"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CabCurso" />
 
-    <TextView
-        android:id="@+id/UnivSet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/blackText"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CabUniv" />
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/ConstraintCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/CidadeSet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/blackText"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CabCpf" />
+            <TextView
+                android:id="@+id/CabNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/PerfilNOME"
+                android:textColor="@color/cinzaText"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/CursoSet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/blackText"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CabCidade" />
+            <TextView
+                android:id="@+id/CabCpf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/PerfilCIDADE"
+                android:textColor="@color/cinzaText"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CpfSet" />
 
-    <TextView
-        android:id="@+id/EmailSet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/blackText"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CabEmail" />
+            <TextView
+                android:id="@+id/CabUniv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/PerfilUniv"
+                android:textColor="@color/cinzaText"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CursoSet" />
+
+            <TextView
+                android:id="@+id/CabCurso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/PerfilCPF"
+                android:textColor="@color/cinzaText"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/EmailSet" />
+
+            <TextView
+                android:id="@+id/CabCidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/PerfilCURSO"
+                android:textColor="@color/cinzaText"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/NomeSet" />
+
+            <TextView
+                android:id="@+id/CabEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/PerfilEMAIL"
+                android:textColor="@color/cinzaText"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/UnivSet" />
+
+            <TextView
+                android:id="@+id/NomeSet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CabNome" />
+
+            <TextView
+                android:id="@+id/CpfSet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CabCurso" />
+
+            <TextView
+                android:id="@+id/UnivSet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CabUniv" />
+
+            <TextView
+                android:id="@+id/CidadeSet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CabCpf" />
+
+            <TextView
+                android:id="@+id/CursoSet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CabCidade" />
+
+            <TextView
+                android:id="@+id/EmailSet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CabEmail" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
 
 </android.support.constraint.ConstraintLayout>

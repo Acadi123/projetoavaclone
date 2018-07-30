@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent it = new Intent(LoginActivity.this, DiscipActivity.class);
                 it.putExtra("token",resultado);
                 startActivity(it);
+                finish();
             }
             else {
                 Toast.makeText(getApplicationContext(), "Login Invalido.", Toast.LENGTH_LONG).show();

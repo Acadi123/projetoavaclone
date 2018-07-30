@@ -10,9 +10,15 @@
     <string name="palavra_telefone">Telefone(inclua DDD)</string>
     <string name="palavra_email">E-mail</string>
     <!-- strings de label-->
+    <string name="LabelGrade">Grade</string>
     <string name="LabelPerfil">Perfil</string>
+    <string name="LabelSobresist">Sobre o sistema</string>
     <string name="LabelDisc">Disciplinas</string>
     <!--strings de texto-->
+    <string name="obsinfoload">Utilize |Recarregar| na toolbar caso algo dê errado ao carregar a página.</string>
+    <string name="disciplinasofert">Disciplinas ofertadas no período atual</string>
+    <string name="sistemainfo">Informações do sistema</string>
+    <string name="alunoinfo">Informações do aluno</string>
     <string name="TxtloginAVA">O usuario e a senha devem ser os mesmo do AVA</string>
     <string name="PerfilCPF">CPF:</string>
     <string name="PerfilEMAIL">E-mail:</string>
@@ -34,4 +40,5 @@
     <string name="menuGrade">GRADE</string>
     <string name="menuSistema">SOBRE O SISTEMA</string>
     <string name="menuLogout">LOGOUT</string>
+    <string name="menu2Recarregar">Recarregar</string>
 </resources>

@@ -9,13 +9,13 @@
 
     <ImageView
         android:id="@+id/LogoLoginAva"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
+        android:layout_width="237dp"
+        android:layout_height="236dp"
         android:layout_marginEnd="70dp"
         android:layout_marginLeft="70dp"
         android:layout_marginRight="70dp"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="44dp"
         android:contentDescription="@string/logo_avaclone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,16 +24,18 @@
 
     <TextView
         android:id="@+id/TxtLoginAVA"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="37dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginRight="37dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
         android:text="@string/TxtloginAVA"
         android:textColor="@color/blackText"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LogoLoginAva" />
 
@@ -45,7 +47,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginRight="21dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/palavra_usuario"
         android:inputType="text"
@@ -67,7 +69,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="@string/palavra_senha"
         android:inputType="textPassword"
@@ -77,22 +79,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginTxtInput" />
-
-    <CheckBox
-        android:id="@+id/RememberBox"
-        android:layout_width="0dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="215dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="215dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/checkbox_remember"
-        android:textColor="@color/blackText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PassTxtInput" />
 
     <Button
         android:id="@+id/BtnLogin"
@@ -109,6 +95,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RememberBox" />
+        app:layout_constraintTop_toBottomOf="@+id/PassTxtInput" />
 
 </android.support.constraint.ConstraintLayout>
