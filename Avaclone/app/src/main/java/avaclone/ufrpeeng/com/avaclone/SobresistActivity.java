@@ -2,6 +2,7 @@ package avaclone.ufrpeeng.com.avaclone;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.design.internal.NavigationMenu;
 import android.support.design.internal.NavigationMenuItemView;
 import android.support.v4.content.ContextCompat;
@@ -11,11 +12,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SobresistActivity extends AppCompatActivity {
 
-
+    TextView versaoandroid;
     String token;
 
     @Override
@@ -27,6 +29,8 @@ public class SobresistActivity extends AppCompatActivity {
         if (extras != null) {
             token = extras.getString("token");}
 
+
+            //menu
         Drawable menuicon = ContextCompat.getDrawable(SobresistActivity.this, R.drawable.ic_menu_nav);
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -75,5 +79,9 @@ public class SobresistActivity extends AppCompatActivity {
                 menu.show();
             }
         });
+        //
+        versaoandroid = findViewById(R.id.androidversionname);
+        versaoandroid.setText(Build.VERSION.RELEASE);
+
     }
 }
