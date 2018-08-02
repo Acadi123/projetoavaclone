@@ -17,7 +17,11 @@ import android.widget.Toast;
 
 public class SobresistActivity extends AppCompatActivity {
 
+<<<<<<< HEAD
+    TextView version;
+=======
     TextView versaoandroid;
+>>>>>>> 61c32d5401740b2a20d185315c01a389908c1737
     String token;
 
     @Override
@@ -29,8 +33,12 @@ public class SobresistActivity extends AppCompatActivity {
         if (extras != null) {
             token = extras.getString("token");}
 
+<<<<<<< HEAD
+        //menu
+=======
 
             //menu
+>>>>>>> 61c32d5401740b2a20d185315c01a389908c1737
         Drawable menuicon = ContextCompat.getDrawable(SobresistActivity.this, R.drawable.ic_menu_nav);
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -63,12 +71,15 @@ public class SobresistActivity extends AppCompatActivity {
                                 return true;
 
                             case R.id.grade:
-                                //
+                                Intent grade = new Intent(SobresistActivity.this, GradeActivity.class);
+                                grade.putExtra("token", token);
+                                startActivity(grade);
                                 return true;
 
                             case R.id.logout:
                                 Intent logout = new Intent(SobresistActivity.this, LoginActivity.class);
                                 startActivity(logout);
+                                finish();
                                 return true;
 
                             default:
@@ -80,8 +91,18 @@ public class SobresistActivity extends AppCompatActivity {
             }
         });
         //
+<<<<<<< HEAD
+        version = findViewById(R.id.version);
+        version.setText(Build.VERSION.RELEASE);
+
+
+
+
+
+=======
         versaoandroid = findViewById(R.id.androidversionname);
         versaoandroid.setText(Build.VERSION.RELEASE);
+>>>>>>> 61c32d5401740b2a20d185315c01a389908c1737
 
     }
 }

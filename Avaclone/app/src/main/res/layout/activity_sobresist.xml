@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".SobresistActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <TextView
         android:id="@+id/infophone"
         android:layout_width="wrap_content"
@@ -32,10 +36,17 @@
         app:layout_constraintStart_toEndOf="@+id/infoapplogo"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/LabelSobresist"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/ic_informacao" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardperfil"
@@ -61,7 +72,11 @@
 
 
             <TextView
+<<<<<<< HEAD
+                android:id="@+id/Sistemanome"
+=======
                 android:id="@+id/cabNome"
+>>>>>>> 61c32d5401740b2a20d185315c01a389908c1737
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -74,6 +89,32 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+<<<<<<< HEAD
+                android:id="@+id/nomeapp"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/app_name"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Sistemanome" />
+
+            <TextView
+                android:id="@+id/version"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="52dp"
+                android:text="@string/app_name"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Sistemanome" />
+=======
                 android:id="@+id/desenvolvedor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -192,10 +233,13 @@
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+>>>>>>> 61c32d5401740b2a20d185315c01a389908c1737
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
 
+<<<<<<< HEAD
+=======
     <ImageView
         android:id="@+id/infoapplogo"
         android:layout_width="40dp"
@@ -218,5 +262,6 @@
         app:layout_constraintTop_toBottomOf="@+id/cardperfil"
         app:srcCompat="@drawable/ic_phone" />
 
+>>>>>>> 61c32d5401740b2a20d185315c01a389908c1737
 
 </android.support.constraint.ConstraintLayout>
