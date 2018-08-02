@@ -76,16 +76,14 @@ public class CadastroActivity extends AppCompatActivity {
                                 startActivity(sobresist);
                                 return true;
 
+
                             case R.id.grade:
-                                Intent perf = new Intent(CadastroActivity.this, GradeActivity.class);
-                                perf.putExtra("token", token);
-                                startActivity(perf);
+                                //
                                 return true;
 
                             case R.id.logout:
                                 Intent logout = new Intent(CadastroActivity.this, LoginActivity.class);
                                 startActivity(logout);
-                                finish();
                                 return true;
 
                             default:
