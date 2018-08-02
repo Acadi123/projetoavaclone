@@ -17,7 +17,14 @@
     <!--strings de texto-->
     <string name="obsinfoload">Utilize |Recarregar| na toolbar caso algo dê errado ao carregar a página.</string>
     <string name="disciplinasofert">Disciplinas ofertadas no período atual</string>
-    <string name="sistemainfo">Informações do sistema</string>
+    <string name="sistemainfo">Informações do app</string>
+    <string name="phoneinfo">Informações do dispositivo</string>
+    <string name="androidversion">Versão do android:</string>
+    <string name="cellinfo">Informações do celular</string>
+    <string name="desenvolvedor">Desenvolvedor:</string>
+    <string name="desenvolvedorname">Ufrpe-Bsi | Fund.Eng.Software | Equipe AvaClone</string>
+    <string name="version">Versão:</string>
+    <string name="versionname">Pre-release</string>
     <string name="alunoinfo">Informações do aluno</string>
     <string name="TxtloginAVA">O usuario e a senha devem ser os mesmo do AVA</string>
     <string name="PerfilCPF">CPF:</string>
