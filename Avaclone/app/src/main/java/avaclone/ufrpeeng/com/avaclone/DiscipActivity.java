@@ -70,14 +70,11 @@ public class DiscipActivity extends AppCompatActivity {
                                 actatual.show();
                                 return true;
 
-
                             case R.id.perfil:
                                 Intent perfil = new Intent(DiscipActivity.this, CadastroActivity.class);
                                 perfil.putExtra("token", token);
                                 startActivity(perfil);
                                 return true;
-
-
 
                             case R.id.sobresist:
                                 Intent sobresist = new Intent(DiscipActivity.this, SobresistActivity.class);
@@ -85,14 +82,16 @@ public class DiscipActivity extends AppCompatActivity {
                                 startActivity(sobresist);
                                 return true;
 
-
                             case R.id.grade:
-                                //
+                                Intent perf = new Intent(DiscipActivity.this, GradeActivity.class);
+                                perf.putExtra("token", token);
+                                startActivity(perf);
                                 return true;
 
                             case R.id.logout:
                                 Intent logout = new Intent(DiscipActivity.this, LoginActivity.class);
                                 startActivity(logout);
+                                finish();
                                 return true;
 
                             default:
