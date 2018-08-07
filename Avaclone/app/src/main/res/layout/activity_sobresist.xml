@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".SobresistActivity">
 
-<<<<<<< HEAD
     <TextView
         android:id="@+id/infophone"
         android:layout_width="wrap_content"
@@ -18,10 +17,8 @@
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/infophonelogo"
-        app:layout_constraintTop_toBottomOf="@+id/cardperfil" />
+        app:layout_constraintTop_toBottomOf="@+id/cardnovopost" />
 
-=======
->>>>>>> parent of fbd62ac... Soresiste, grade xml ; Cadastro, discip, grade, sobresist java ;
     <TextView
         android:id="@+id/infoapp"
         android:layout_width="wrap_content"
@@ -41,7 +38,7 @@
         />
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardperfil"
+        android:id="@+id/cardnovopost"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -62,8 +59,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
-<<<<<<< HEAD
             <TextView
                 android:id="@+id/cabNome"
                 android:layout_width="wrap_content"
@@ -181,8 +176,7 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/escopo" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/androidversion"
@@ -196,28 +190,22 @@
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-=======
->>>>>>> parent of fbd62ac... Soresiste, grade xml ; Cadastro, discip, grade, sobresist java ;
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
 
     <ImageView
-<<<<<<< HEAD
         android:id="@+id/infoapplogo"
-=======
-        android:id="@+id/imageView"
->>>>>>> parent of fbd62ac... Soresiste, grade xml ; Cadastro, discip, grade, sobresist java ;
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:contentDescription="@string/sistemainfo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:srcCompat="@drawable/ic_informacao" />
 
-<<<<<<< HEAD
     <ImageView
         android:id="@+id/infophonelogo"
         android:layout_width="40dp"
@@ -225,11 +213,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:contentDescription="@string/phoneinfo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardperfil"
+        app:layout_constraintTop_toBottomOf="@+id/cardnovopost"
         app:srcCompat="@drawable/ic_phone" />
-
-=======
->>>>>>> parent of fbd62ac... Soresiste, grade xml ; Cadastro, discip, grade, sobresist java ;
-
 </android.support.constraint.ConstraintLayout>

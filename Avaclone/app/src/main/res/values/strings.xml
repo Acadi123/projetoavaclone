@@ -10,13 +10,20 @@
     <string name="palavra_telefone">Telefone(inclua DDD)</string>
     <string name="palavra_email">E-mail</string>
     <!-- strings de label-->
+    <string name="postagens">Postagens</string>
     <string name="LabelGrade">Grade</string>
     <string name="LabelPerfil">Perfil</string>
     <string name="LabelSobresist">Sobre o sistema</string>
     <string name="LabelDisc">Disciplinas</string>
     <!--strings de texto-->
+    <string name="cabaluno">Quem postou:</string>
+    <string name="cabanexos">Anexos(url):</string>
+    <string name="cabconteudo">Conteúdo:</string>
+    <string name="cabassunto">Assunto:</string>
+    <string name="cabnovopost">Novo post</string>
+    <string name="gradecab">Horários do período atual</string>
     <string name="obsinfoload">Utilize |Recarregar| na toolbar caso algo dê errado ao carregar a página.</string>
-    <string name="disciplinasofert">Disciplinas ofertadas no período atual</string>
+    <string name="disciplinasofert">Disciplinas ofertadas no período atual\nSelecione para acessar o fórum</string>
     <string name="sistemainfo">Informações do app</string>
     <string name="phoneinfo">Informações do dispositivo</string>
     <string name="androidversion">Versão do android:</string>
@@ -42,10 +49,29 @@
     <!--strings de imagem-->
     <string name="logo_avaclone">LogoAvaClone</string>
     <!--strings de menu-->
-    <string name="menuDisciplinas">DISCIPLINAS</string>
-    <string name="menuPerfil">PERFIL</string>
-    <string name="menuGrade">GRADE</string>
-    <string name="menuSistema">SOBRE O SISTEMA</string>
-    <string name="menuLogout">LOGOUT</string>
+    <string name="menuvizual">Ver post</string>
+    <string name="editarpost">Editar post</string>
+    <string name="excluirpost">Deletar post</string>
+    <string name="menumeusPosts">Meus Posts</string>
+    <string name="menueditpost">Novo Post</string>
+    <string name="menuDisciplinas">Disciplinas</string>
+    <string name="menuPerfil">Perfil</string>
+    <string name="menuGrade">Grade</string>
+    <string name="menuSistema">Sobre o sistema</string>
+    <string name="menuLogout">Logout</string>
     <string name="menu2Recarregar">Recarregar</string>
+    <!--strings da grade-->
+    <string name="segunda"> Seg. </string>
+    <string name="terça"> Ter. </string>
+    <string name="quarta"> Quar. </string>
+    <string name="quinta"> Quin. </string>
+    <string name="sexta"> Sex. </string>
+    <string name="espaçamento">      </string>
+    <string name="horario1">  08:00&#8211;10:00</string>
+    <string name="horario2">  10:00&#8211;12:00</string>
+    <string name="horario3">  14:00&#8211;16:00</string>
+    <string name="horario4">  16:00&#8211;18:00</string>
+    <string name="horario5">  18:30&#8211;20:10</string>
+    <string name="horario6">  20:10&#8211;21:50</string>
+    <string name="vazio">-----</string>
 </resources>

@@ -38,7 +38,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardperfil" />
+        app:layout_constraintTop_toBottomOf="@+id/cardnovopost" />
 
     <TextView
         android:id="@+id/alunoinfotext2"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardperfil"
+        android:id="@+id/cardnovopost"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

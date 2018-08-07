@@ -36,4 +36,8 @@
     <item name="android:textColorSecondaryInverse">@color/blackText</item>
     </style>
 
+    <style name="CardView.">
+
+    </style>
+
 </resources>

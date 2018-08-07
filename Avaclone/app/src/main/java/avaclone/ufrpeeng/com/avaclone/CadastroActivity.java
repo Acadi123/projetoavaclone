@@ -45,6 +45,27 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
+        Toast erro = Toast.makeText(getApplicationContext(), "Verifique sua conexão com a internet.", Toast.LENGTH_LONG);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            token = extras.getString("token");
+
+            parametros1 = "wsfunction=" + "core_webservice_get_site_info" + "&wstoken=" + token;
+            parametros2 = "wsfunction=" + "core_user_get_users_by_id" + "&wstoken=" + token;
+
+            ConnectivityManager connMgr = (ConnectivityManager)
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+            if (networkInfo != null && networkInfo.isConnected()) {
+                new SolocitaDados1().execute(url);
+            }
+            else {
+                erro.show();
+            }
+        }
+
         //menu nav
         Drawable menuicon = ContextCompat.getDrawable(CadastroActivity.this,R.drawable.ic_menu_nav);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -78,13 +99,17 @@ public class CadastroActivity extends AppCompatActivity {
 
 
                             case R.id.grade:
-                                //
+                                Intent grade = new Intent(CadastroActivity.this, GradeActivity.class);
+                                grade.putExtra("token", token);
+                                startActivity(grade);
                                 return true;
 
                             case R.id.logout:
                                 Intent logout = new Intent(CadastroActivity.this, LoginActivity.class);
                                 startActivity(logout);
+                                finish();
                                 return true;
+
 
                             default:
                                 return false;
@@ -96,28 +121,6 @@ public class CadastroActivity extends AppCompatActivity {
         });
         //
 
-
-
-        Toast erro = Toast.makeText(getApplicationContext(), "Verifique sua conexão com a internet.", Toast.LENGTH_LONG);
-
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            token = extras.getString("token");
-
-            parametros1 = "wsfunction=" + "core_webservice_get_site_info" + "&wstoken=" + token;
-            parametros2 = "wsfunction=" + "core_user_get_users_by_id" + "&wstoken=" + token;
-
-            ConnectivityManager connMgr = (ConnectivityManager)
-                    getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-
-            if (networkInfo != null && networkInfo.isConnected()) {
-                new SolocitaDados1().execute(url);
-            }
-            else {
-                erro.show();
-            }
-        }
     }
 
 
@@ -163,6 +166,7 @@ public class CadastroActivity extends AppCompatActivity {
             if (resultado != null) try {
                 userid = resultado.getString("userid");
                 parametros2 = parametros2 + "&userids[0]=" + userid;
+
             } catch (JSONException e) {
                 erro.show();
             }

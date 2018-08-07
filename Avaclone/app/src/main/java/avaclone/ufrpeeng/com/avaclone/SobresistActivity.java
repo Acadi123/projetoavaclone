@@ -2,6 +2,7 @@ package avaclone.ufrpeeng.com.avaclone;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.design.internal.NavigationMenu;
 import android.support.design.internal.NavigationMenuItemView;
 import android.support.v4.content.ContextCompat;
@@ -11,15 +12,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SobresistActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
     TextView versaoandroid;
-=======
 
->>>>>>> parent of fbd62ac... Soresiste, grade xml ; Cadastro, discip, grade, sobresist java ;
+
     String token;
 
     @Override
@@ -31,11 +31,8 @@ public class SobresistActivity extends AppCompatActivity {
         if (extras != null) {
             token = extras.getString("token");}
 
-<<<<<<< HEAD
 
             //menu
-=======
->>>>>>> parent of fbd62ac... Soresiste, grade xml ; Cadastro, discip, grade, sobresist java ;
         Drawable menuicon = ContextCompat.getDrawable(SobresistActivity.this, R.drawable.ic_menu_nav);
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -68,12 +65,15 @@ public class SobresistActivity extends AppCompatActivity {
                                 return true;
 
                             case R.id.grade:
-                                //
+                                Intent grade = new Intent(SobresistActivity.this, GradeActivity.class);
+                                grade.putExtra("token", token);
+                                startActivity(grade);
                                 return true;
 
                             case R.id.logout:
                                 Intent logout = new Intent(SobresistActivity.this, LoginActivity.class);
                                 startActivity(logout);
+                                finish();
                                 return true;
 
                             default:
@@ -84,12 +84,9 @@ public class SobresistActivity extends AppCompatActivity {
                 menu.show();
             }
         });
-<<<<<<< HEAD
         //
         versaoandroid = findViewById(R.id.androidversionname);
         versaoandroid.setText(Build.VERSION.RELEASE);
 
-=======
->>>>>>> parent of fbd62ac... Soresiste, grade xml ; Cadastro, discip, grade, sobresist java ;
     }
 }

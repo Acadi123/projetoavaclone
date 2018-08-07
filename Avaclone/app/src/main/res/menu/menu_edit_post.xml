@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/vizualpost"
+        android:icon="@drawable/ic_posts"
+        android:title="@string/menuvizual"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/editarpost"
+        android:title="@string/editarpost"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/excluirpost"
+        android:title="@string/excluirpost"
+        app:showAsAction="ifRoom"/>
+
+
+</menu>

@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.PopupMenu;
@@ -38,10 +39,14 @@ public class DiscipActivity extends AppCompatActivity {
     String parametros2 = "";
     String userid = "";
     String token;
+    String aluno;
 
     String url = "http://ava.ufrpe.br/webservice/rest/server.php?moodlewsrestformat=json";
 
     ListView listdiscW;
+
+    ArrayList listdisc;
+
 
 
 
@@ -52,6 +57,7 @@ public class DiscipActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discip);
 
+        //menu
         Drawable menuicon = ContextCompat.getDrawable(DiscipActivity.this,R.drawable.ic_menu_nav);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -87,12 +93,17 @@ public class DiscipActivity extends AppCompatActivity {
 
 
                             case R.id.grade:
-                                //
+                                Intent grade = new Intent(DiscipActivity.this, GradeActivity.class);
+                                grade.putExtra("token", token);
+                                grade.putExtra("listdisc",listdisc);
+                                startActivity(grade);
+
                                 return true;
 
                             case R.id.logout:
                                 Intent logout = new Intent(DiscipActivity.this, LoginActivity.class);
                                 startActivity(logout);
+                                finish();
                                 return true;
 
                             default:
@@ -103,11 +114,13 @@ public class DiscipActivity extends AppCompatActivity {
                 menu.show();
             }
         });
+        //
 
         listdiscW = findViewById(R.id.listdisc);
 
         Toast erro = Toast.makeText(getApplicationContext(), "Verifique sua conexão com a internet.", Toast.LENGTH_LONG);
 
+        //recolhe dados da listview
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             token = extras.getString("token");
@@ -127,10 +140,22 @@ public class DiscipActivity extends AppCompatActivity {
                 erro.show();
             }
         }
+        //
+        listdiscW.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String disciplina = listdiscW.getItemAtPosition(i).toString();
+                Intent vizualpost = new Intent(DiscipActivity.this, PostsActivity.class);
+                vizualpost.putExtra("token", token);
+                vizualpost.putExtra("disciplina",disciplina);
+                vizualpost.putExtra("aluno",aluno);
+                startActivity(vizualpost);
+            }
+        });
     }
 
 
-
+    //toolbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
@@ -154,14 +179,11 @@ public class DiscipActivity extends AppCompatActivity {
                     Toast erro = Toast.makeText(getApplicationContext(), "Verifique sua conexão com a internet.", Toast.LENGTH_LONG);
                     erro.show();
                 }
-
-
                 return true;
-
-
         }
         return super.onOptionsItemSelected(item);
     }
+    //
 
 
 
@@ -177,7 +199,10 @@ public class DiscipActivity extends AppCompatActivity {
         protected void onPostExecute(JSONObject resultado) {
             Toast erro = Toast.makeText(getApplicationContext(), "Erro ao coletar informações do servidor.", Toast.LENGTH_LONG);
             if (resultado != null) try {
+
                 userid = resultado.getString("userid");
+                aluno = trabnome(resultado.getString("fullname"));
+
                 parametros2 = parametros2 + "&userids[0]=" + userid;
             } catch (JSONException e) {
                 erro.show();
@@ -197,12 +222,13 @@ public class DiscipActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(JSONArray resultado) {
+
+            listdisc = new ArrayList<String>();
+
             Toast erro = Toast.makeText(getApplicationContext(), "Erro ao coletar informações do servidor.", Toast.LENGTH_LONG);
 
             if (resultado != null) {
                 try {
-                    ArrayList<String> listdisc = new ArrayList<>();
-
                     for (int i = 0; i < resultado.length(); i++){
                         JSONObject row = resultado.getJSONObject(i);
                         String nomedisc = row.getString("fullname");
@@ -211,13 +237,11 @@ public class DiscipActivity extends AppCompatActivity {
                             listdisc.add(nomedisc);
                         }
                     }
-
                     ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(DiscipActivity.this, android.R.layout.simple_list_item_1, listdisc);
                     listdiscW.setAdapter(arrayAdapter);
 
                     Toast sucesso = Toast.makeText(getApplicationContext(), "Disciplinas carregadas", Toast.LENGTH_SHORT);
                     sucesso.show();
-
                 } catch (JSONException e) {
                     erro.show();
                 }
@@ -293,5 +317,17 @@ public class DiscipActivity extends AppCompatActivity {
             }
             return null;
         }
+    }
+    public String trabnome(String texto) {
+        texto = texto.toLowerCase();
+        StringBuilder stringBuilder = new StringBuilder(texto);
+        stringBuilder.setCharAt(0,Character.toUpperCase((texto.charAt(0))));
+        for (int k = 0; k < texto.length(); k++) {
+            if (Character.toString(texto.charAt(k)).equals(" ")) {
+                stringBuilder.setCharAt(k+1,Character.toUpperCase((texto.charAt(k + 1))));
+            }
+
+        }
+        return stringBuilder.toString();
     }
 }

@@ -7,94 +7,117 @@
     tools:context=".LoginActivity"
     tools:ignore="ExtraText">
 
-    <ImageView
-        android:id="@+id/LogoLoginAva"
-        android:layout_width="237dp"
-        android:layout_height="236dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="70dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="44dp"
-        android:contentDescription="@string/logo_avaclone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/avaclonelogo" />
-
-    <TextView
-        android:id="@+id/TxtLoginAVA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
-        android:text="@string/TxtloginAVA"
-        android:textColor="@color/blackText"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogoLoginAva" />
-
-    <EditText
-        android:id="@+id/LoginTxtInput"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardnovopost"
         android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="21dp"
-        android:layout_marginStart="24dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="@string/palavra_usuario"
-        android:inputType="text"
-        android:textColor="@color/blackText"
-        android:textColorHint="@color/cinzaText"
+        app:cardBackgroundColor="@color/cardcolor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TxtLoginAVA" />@string/palavra_usuario
-        app:layout_constraintBottom_toTopOf="@+id/PassTxtInput"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/PassTxtInput"
-        android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:hint="@string/palavra_senha"
-        android:inputType="textPassword"
-        android:textColor="@color/blackText"
-        android:textColorHint="@color/cinzaText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginTxtInput" />
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/ConstraintCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/BtnLogin"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:background="#272b30"
-        android:text="@string/palavra_logar"
-        android:textColor="@color/whiteText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PassTxtInput" />
+            <ImageView
+                android:id="@+id/LogoLoginAva"
+                android:layout_width="237dp"
+                android:layout_height="236dp"
+                android:layout_marginEnd="70dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="32dp"
+                android:contentDescription="@string/logo_avaclone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/avaclonelogo" />
+
+            <TextView
+                android:id="@+id/TxtLoginAVA"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/TxtloginAVA"
+                android:textColor="@color/blackText"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.545"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/LogoLoginAva" />
+
+            <EditText
+                android:id="@+id/LoginTxtInput"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="21dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:hint="@string/palavra_usuario"
+                android:inputType="text"
+                android:textColor="@color/blackText"
+                android:textColorHint="@color/cinzaText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TxtLoginAVA" />@string/palavra_usuario
+            app:layout_constraintBottom_toTopOf="@+id/PassTxtInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+            <EditText
+                android:id="@+id/PassTxtInput"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:hint="@string/palavra_senha"
+                android:inputType="textPassword"
+                android:textColor="@color/blackText"
+                android:textColorHint="@color/cinzaText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/LoginTxtInput" />
+
+            <Button
+                android:id="@+id/BtnLogin"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/palavra_logar"
+                android:textColor="@color/whiteText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PassTxtInput" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
 
 </android.support.constraint.ConstraintLayout>
